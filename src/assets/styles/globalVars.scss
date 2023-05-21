@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+$main-font: 'Rubik', sans-serif;
+$main-bg: #3E3C55;
+$canvas-bg: #2F2E41;
+$light-text: #FFF;
+$blue-text: #9D98EA;
+
+@mixin flexB($alignment: center, $j-content: space-between) {
+    display: flex;
+    align-items: $alignment;
+    justify-content: $j-content;
+    flex-wrap: wrap;
+}
