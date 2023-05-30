@@ -1,5 +1,7 @@
-const Subject = () => {
-    
+export default function Subject() {
+    return (
+        <div>
+            
+        </div>
+    )
 }
-
-export default Subject;

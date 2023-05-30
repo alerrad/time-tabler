@@ -1,5 +1,7 @@
-const Status = (params) => {
-
+export default function Status() {
+    return (
+        <span>
+            
+        </span>
+    )
 }
-
-export default Status

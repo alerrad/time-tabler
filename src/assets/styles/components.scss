@@ -1,0 +1,115 @@
+.col {
+    width: 120px;
+    margin: 7.5px;
+}
+
+.day-name {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.add {
+    background-color: $add-bg;
+    position: relative;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: all .3s;
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.box {
+    text-align: center;
+    border-radius: 10px;
+    width: 100%;
+    height: 120px;
+    margin-top: 10px;
+}
+
+.card-header {
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+.card {
+    width: 200px;
+
+    button {
+        border-radius: 30px;
+        color: $blue-text;
+        background: $canvas-bg;
+        border: none;
+        padding: 5px;
+        width: 90px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+}
+
+#title {
+    max-width: 300px;
+    font-size: 40px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    color: #FFF;
+}
+
+#timetable {
+    max-width: 1200px;
+    min-height: 500px;
+    background-color: $canvas-bg;
+    margin: auto;
+    border-radius: 15px;
+    padding: 30px;
+
+    ul {
+        list-style: none;
+        list-style-type: none;
+    }
+}
+
+#logo {
+    width: 200px;
+}
+
+#media-links {
+    max-width: 90px;
+    margin-top: 20px;
+}
+
+#pop-form-back {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(103, 101, 151, 0.3);
+    z-index: 1;
+    backdrop-filter: blur(3px);
+    pointer-events: none;
+}
+
+#pop-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-width: 500px;
+    background-color: #3E3C55;
+}
+
+#export-btn {
+    width: 100%;
+    margin-top: 20px;
+    border: 2px $blue-text solid;
+    background: none;
+}

@@ -1,5 +1,7 @@
-const StatusForm = () => {
-    
+export default function StatusForm() {
+    return (
+        <div>
+            
+        </div>
+    )
 }
-
-export default StatusForm

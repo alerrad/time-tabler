@@ -1,4 +1,4 @@
-# Time-tabler
+# __Time-tabler__ 📅
 
 ![Demo preview](./public/demo.png)
 
