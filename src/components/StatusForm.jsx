@@ -1,7 +1,7 @@
 export default function StatusForm() {
     return (
-        <div>
+        <dialog>
             
-        </div>
+        </dialog>
     )
 }

@@ -3,15 +3,8 @@
 import instaIcon from "../assets/img/instagram-circle.svg";
 import heartIcon from "../assets/img/github-icon.svg";
 
-export default function Footer({ imgLink }) {
-  const exportHandler = (e) => {
-    e.preventDefault()
-    console.log(imgLink);
-    const lnk = document.createElement("a");
-    lnk.download = imgLink;
-    lnk.click();
-  };
 
+export default function Footer({ imgLink }) {
   return (
     <footer>
       <div className="container flex-box">
@@ -28,9 +21,9 @@ export default function Footer({ imgLink }) {
             <button>X1</button>
             <button>PNG</button>
           </div>
-          <button id="export-btn" onClick={exportHandler}>
-            Export
-          </button>
+          <a href={imgLink} download="time-table.png">
+            <button id="export-btn">Export</button>
+          </a>
         </div>
         <div className="card">
           <h1 className="card-header">Support</h1>

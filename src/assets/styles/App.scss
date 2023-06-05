@@ -9,8 +9,10 @@
     color: $light-text;
 }
 
-input:focus, textarea:focus {
-    border: none;
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
 }
 
 body {
