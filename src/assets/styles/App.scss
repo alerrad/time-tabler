@@ -9,6 +9,12 @@
     color: $light-text;
 }
 
+button {
+    background-color: inherit;
+    border: inherit;
+    cursor: pointer;
+}
+
 input:focus,
 textarea:focus,
 select:focus {
@@ -55,9 +61,4 @@ footer {
 }
 .text-25 {
     font-size: 25px;
-}
-
-.hidden {
-    opacity: 0;
-    pointer-events: none;
 }
