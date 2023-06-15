@@ -12,7 +12,13 @@ export default function TimeTable({ setImgLink }) {
   const [statuses, setStatuses] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
   const [week, setWeek] = useState({
-    mon: [],
+    mon: [{
+      id: Date.now(),
+      title: "Linear Algebra",
+      timeStamp: "8:00-8:50",
+      status: "#1F9362",
+      room: "c1.1.328",
+    }],
     tue: [],
     wed: [],
     thu: [],
@@ -21,6 +27,7 @@ export default function TimeTable({ setImgLink }) {
   });
 
   // Form states
+  const [day, setDay] = useState("");
   const [title, setTitle] = useState("");
   const [timeStamp, setTimeStamp] = useState("");
   const [status, setStatus] = useState("");
@@ -37,6 +44,7 @@ export default function TimeTable({ setImgLink }) {
               lessons={lessons}
               setWeek={setWeek}
               setIsVisible={setIsVisible}
+              setDay={setDay}
             />
           ))}
         </div>
@@ -52,10 +60,10 @@ export default function TimeTable({ setImgLink }) {
       <Popup isVisible={isVisible} setIsVisible={setIsVisible}>
         <form id="pop-form">
           <h2>New entry</h2>
-          <input type="text" placeholder="Subject name" />
-          <input type="text" placeholder="Time stamp" />
+          <input type="text" placeholder="Subject name" required/>
+          <input type="text" placeholder="Time stamp" required/>
           <input type="text" placeholder="Room (optional)" />
-          <select placeholder="status">
+          <select placeholder="status" required>
             {statuses.map((status) => (
               <select key={status.id}>{status.name}</select>
             ))}

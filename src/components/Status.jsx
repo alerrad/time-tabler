@@ -1,6 +1,6 @@
 export default function Status() {
     return (
-        <span>
+        <span className="flex-box">
             
         </span>
     )
