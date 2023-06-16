@@ -7,18 +7,27 @@ import Status from "./Status";
 import Column from "./Column";
 import Popup from "./Popup";
 
-
 export default function TimeTable({ setImgLink }) {
-  const [statuses, setStatuses] = useState([]);
+  const [statuses, setStatuses] = useState([
+    {
+      id: Date.now(),
+      name: "Offline lecture",
+      color: "#1F9362",
+    },
+    {
+      id: Date.now() + 1,
+      name: "Offline practice",
+      color: "#2F98B9",
+    },
+    {
+      id: Date.now() + 2,
+      name: "Online lecture",
+      color: "#46DDB9",
+    },
+  ]);
   const [isVisible, setIsVisible] = useState(false);
   const [week, setWeek] = useState({
-    mon: [{
-      id: Date.now(),
-      title: "Linear Algebra",
-      timeStamp: "8:00-8:50",
-      status: "#1F9362",
-      room: "c1.1.328",
-    }],
+    mon: [],
     tue: [],
     wed: [],
     thu: [],
@@ -30,7 +39,7 @@ export default function TimeTable({ setImgLink }) {
   const [day, setDay] = useState("");
   const [title, setTitle] = useState("");
   const [timeStamp, setTimeStamp] = useState("");
-  const [status, setStatus] = useState("");
+  const [statusColor, setStatusColor] = useState("");
   const [room, setRoom] = useState("");
 
   return (
@@ -45,6 +54,7 @@ export default function TimeTable({ setImgLink }) {
               setWeek={setWeek}
               setIsVisible={setIsVisible}
               setDay={setDay}
+              week={week}
             />
           ))}
         </div>
@@ -52,23 +62,81 @@ export default function TimeTable({ setImgLink }) {
           <input type="text" placeholder="Title here..." id="title" required />
           <ul id="statuses">
             {statuses.map((status) => (
-              <Status key={status.id} setStatuses={setStatuses} />
+              <Status
+                key={status.id}
+                id={status.id}
+                name={status.name}
+                color={status.color}
+                setStatuses={setStatuses}
+              />
             ))}
           </ul>
         </div>
       </div>
       <Popup isVisible={isVisible} setIsVisible={setIsVisible}>
-        <form id="pop-form">
+        <form
+          id="pop-form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            let weekCopy = week;
+            weekCopy[day].push({
+              id: Date.now(),
+              title: title,
+              timeStamp: timeStamp,
+              status: statusColor,
+              room: room,
+            });
+            setIsVisible(false);
+            setWeek(weekCopy);
+            setRoom("");
+            setTitle("");
+            setTimeStamp("");
+            setStatusColor("");
+          }}
+        >
           <h2>New entry</h2>
-          <input type="text" placeholder="Subject name" required/>
-          <input type="text" placeholder="Time stamp" required/>
-          <input type="text" placeholder="Room (optional)" />
-          <select placeholder="status" required>
+          <input
+            value={title}
+            onChange={(e) => {
+              setTitle(e.target.value);
+            }}
+            type="text"
+            placeholder="Subject name"
+            required
+          />
+          <input
+            value={timeStamp}
+            onChange={(e) => {
+              setTimeStamp(e.target.value);
+            }}
+            type="text"
+            placeholder="hh:mm-hh:mm"
+            required
+          />
+          <input
+            value={room}
+            onChange={(e) => {
+              setRoom(e.target.value);
+            }}
+            type="text"
+            placeholder="Room (optional)"
+          />
+          <select
+            onChange={(e) => {
+              setStatusColor(e.target.value);
+            }}
+            placeholder="status"
+            required
+          >
             {statuses.map((status) => (
-              <select key={status.id}>{status.name}</select>
+              <option key={status.id} value={status.color}>
+                {status.name}
+              </option>
             ))}
           </select>
-          <button id="add-lesson" type="submit">Add</button>
+          <button id="add-lesson" type="submit">
+            Add
+          </button>
         </form>
       </Popup>
     </section>

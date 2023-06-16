@@ -1,7 +1,8 @@
-export default function Status() {
+export default function Status(props) {
     return (
-        <span className="flex-box">
-            
-        </span>
+        <li>
+           <span style={{background: props.color}}></span>
+           <p style={{color: props.color}}>{props.name}</p> 
+        </li>
     )
 }

@@ -10,6 +10,7 @@ export default function Column({
   setWeek,
   setIsVisible,
   setDay,
+  week
 }) {
   return (
     <div className="col">
@@ -17,7 +18,10 @@ export default function Column({
       <ul className="lessons">
         {lessons.map((lesson) => (
           <Lesson
+            id={lesson.id}
             key={lesson.id}
+            dayName={dayName}
+            week={week}
             lessonId={lesson.id}
             setWeek={setWeek}
             title={lesson.title}
